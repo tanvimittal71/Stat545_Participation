@@ -555,8 +555,30 @@ if (my_commute &gt; 30) {
 <div id="relationalcomparison-and-logical-operators-in-r" class="section level1">
 <h1>Relational/Comparison and Logical Operators in R</h1>
 <ol style="list-style-type: decimal">
-<li><p>Find all entries of Canada and Algeria occuring in the ’60s.</p></li>
-<li>Find all entries of Canada, and entries of Algeria occuring in the ’60s.</li>
+<li>Find all entries of Canada and Algeria occuring in the ’60s.</li>
+</ol>
+<pre class="r"><code>gapminder %&gt;% 
+  filter((country == &quot;Canada&quot; | country == &quot;Algeria&quot;) &amp; year &gt;= 1960 &amp; year &lt; 1970)</code></pre>
+<pre><code>## # A tibble: 4 x 6
+##   country continent  year lifeExp      pop gdpPercap
+##   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+## 1 Algeria Africa     1962    48.3 11000948     2551.
+## 2 Algeria Africa     1967    51.4 12760499     3247.
+## 3 Canada  Americas   1962    71.3 18985849    13462.
+## 4 Canada  Americas   1967    72.1 20819767    16077.</code></pre>
+<pre class="r"><code>gapminder %&gt;% 
+  filter(country %in% c(&quot;Canada&quot;,&quot;Algeria&quot;),
+         year &gt;= 1960,
+         year &lt; 1970)</code></pre>
+<pre><code>## # A tibble: 4 x 6
+##   country continent  year lifeExp      pop gdpPercap
+##   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+## 1 Algeria Africa     1962    48.3 11000948     2551.
+## 2 Algeria Africa     1967    51.4 12760499     3247.
+## 3 Canada  Americas   1962    71.3 18985849    13462.
+## 4 Canada  Americas   1967    72.1 20819767    16077.</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Find all entries of Canada, and entries of Algeria occuring in the ’60s.</p></li>
 <li><p>Find all entries <em>not</em> including Canada and Algeria.</p></li>
 </ol>
 </div>

@@ -317,7 +317,40 @@ Your task is to use metaprogramming to check whether a response (like the one ab
 
 1. Find all entries of Canada and Algeria occuring in the '60s. 
 
+```r
+gapminder %>% 
+  filter((country == "Canada" | country == "Algeria") & year >= 1960 & year < 1970)
+```
+
+```
+## # A tibble: 4 x 6
+##   country continent  year lifeExp      pop gdpPercap
+##   <fct>   <fct>     <int>   <dbl>    <int>     <dbl>
+## 1 Algeria Africa     1962    48.3 11000948     2551.
+## 2 Algeria Africa     1967    51.4 12760499     3247.
+## 3 Canada  Americas   1962    71.3 18985849    13462.
+## 4 Canada  Americas   1967    72.1 20819767    16077.
+```
+
+```r
+gapminder %>% 
+  filter(country %in% c("Canada","Algeria"),
+         year >= 1960,
+         year < 1970)
+```
+
+```
+## # A tibble: 4 x 6
+##   country continent  year lifeExp      pop gdpPercap
+##   <fct>   <fct>     <int>   <dbl>    <int>     <dbl>
+## 1 Algeria Africa     1962    48.3 11000948     2551.
+## 2 Algeria Africa     1967    51.4 12760499     3247.
+## 3 Canada  Americas   1962    71.3 18985849    13462.
+## 4 Canada  Americas   1967    72.1 20819767    16077.
+```
+
 2. Find all entries of Canada, and entries of Algeria occuring in the '60s. 
+
 3. Find all entries _not_ including Canada and Algeria.
 
 # Bonus Exercises
