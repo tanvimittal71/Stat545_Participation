@@ -1,0 +1,17 @@
+Package: powers
+Type: Package
+Title: Apply powers to vectors
+Version: 0.1.0
+Authors@R: person("Tanvi", "Mittal", email = "tnvimital@gmail.com",
+  role = c("aut", "cre"))
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.0
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
